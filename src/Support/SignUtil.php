@@ -13,6 +13,6 @@ class SignUtil
     public function getData(array $param, $encryptMethod = 'md5')
     {
         ksort($param);
-        return strtoupper(call_user_func_array($encryptMethod, [urldecode(http_build_query($param)) . $this->appSecret]));
+        return call_user_func_array($encryptMethod, [urldecode(http_build_query($param)) . $this->appSecret]);
     }
 }

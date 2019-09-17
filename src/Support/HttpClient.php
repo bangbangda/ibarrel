@@ -5,7 +5,7 @@ use GuzzleHttp\Client;
 
 class HttpClient
 {
-    private $apiDomain = 'http://api.ibarrel.top';
+    private $apiDomain = 'http://api.ibarrel.com.cn';
 
     private $config = null;
     public function __construct(array $config)
@@ -17,7 +17,7 @@ class HttpClient
     {
         $signUtil = new SignUtil($this->config);
 
-        $params['app_id'] = $this->config['app_id'];
+        $params['appid'] = $this->config['app_id'];
 
         $params['sign'] = $signUtil->getData($params);
         info(json_encode($params));

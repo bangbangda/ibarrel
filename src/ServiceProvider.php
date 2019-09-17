@@ -4,7 +4,7 @@ namespace Bangbangda\Ibarrel;
 
 use Bangbangda\Ibarrel\Ibarrel;
 
-class ServiceProvider extends Illuminate\Support\ServiceProvider
+class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     /**
      * Register services.
@@ -19,8 +19,8 @@ class ServiceProvider extends Illuminate\Support\ServiceProvider
             'ibarrel'
         );
 
-        $this->app->bind(Ibarrel::class, function ($app) {
-            return new Ibarrel($app['config']);
+        $this->app->bind('Ibarrel', function ($app) {
+            return new Ibarrel($app['config']->get('ibarrel'));
         });
     }
 
@@ -32,7 +32,7 @@ class ServiceProvider extends Illuminate\Support\ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/config.php' => config_path('ekko.php'),
+            __DIR__.'/config/ibarrel.php' => config_path('ibarrel.php'),
         ]);
     }
 

@@ -3,7 +3,14 @@
 namespace Bangbangda\Ibarrel;
 
 use Bangbangda\Ibarrel\Support\HttpClient;
+use Bangbangda\Ibarrel\Support\SignUtil;
 
+/**
+ * 接口操作类
+ *
+ * Class Ibarrel
+ * @package Bangbangda\Ibarrel
+ */
 class Ibarrel
 {
     private $httpClient = null;
@@ -17,15 +24,29 @@ class Ibarrel
         $this->httpClient = new HttpClient($config);
     }
 
-
+    /**
+     * 获取酒品信息
+     *
+     * @param array $params
+     * @return mixed
+     */
     public function info(array $params)
     {
         $params['action'] = 'getinfo';
 
-        $result = $this->httpClient->request($params);
-
-        dd($result);
+        return $this->httpClient->request($params);
     }
 
+    /**
+     * 出酒
+     *
+     * @param $params
+     * @return mixed
+     */
+    public function outputWine($params)
+    {
+        $params['action'] = 'outputwine';
 
+        return $this->httpClient->request($params);
+    }
 }

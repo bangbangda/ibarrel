@@ -11,6 +11,6 @@ class Facade extends \Illuminate\Support\Facades\Facade
      */
     protected static function getFacadeAccessor()
     {
-        return Ibarrel::class;
+        return 'Ibarrel';
     }
 }
