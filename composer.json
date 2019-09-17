@@ -1,0 +1,32 @@
+{
+    "name": "bangbangda/ibarrel",
+    "description": "爱杯分酒机接口SDK",
+    "type": "library",
+    "authors": [
+        {
+            "name": "HaoLiang",
+            "email": "haoliang@outlook.jp"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Bangbangda\\Ibarrel\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bangbangda\\Ibarrel\\ServiceProvider"
+            ],
+            "aliases": {
+                "Ibarrel": "Bangbangda\\Ibarrel\\Facade"
+            }
+        }
+    }
+}
