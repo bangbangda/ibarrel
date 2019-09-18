@@ -49,4 +49,17 @@ class Ibarrel
 
         return $this->httpClient->request($params);
     }
+
+    /**
+     * 出酒状态查询
+     *
+     * @param $params
+     * @return mixed
+     */
+    public function outputWineStatus($params)
+    {
+        $params['action'] = 'query';
+
+        return $this->httpClient->request($params);
+    }
 }
