@@ -11,6 +11,10 @@ class HttpClient
     public function __construct(array $config)
     {
         $this->config = $config;
+
+        if (isset($this->config['api_domain'])) {
+            $this->apiDomain = $this->config['api_domain'];
+        }
     }
 
     public function request(array $params, $method = 'post', string $uri = '/v1/Openapi/wine')
